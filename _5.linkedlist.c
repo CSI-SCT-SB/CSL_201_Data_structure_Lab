@@ -84,7 +84,7 @@ int main(){
   }
 }
 
-slnode *getslnode(){
+slnode *getslnode(){ //creates a node for the linked list
   slnode *node = (slnode *) malloc(sizeof(slnode));
   if (node){
     node->link = NULL;
@@ -96,7 +96,7 @@ slnode *getslnode(){
   }
 }
 
-void sladdfront(slnode *head, int n){
+void sladdfront(slnode *head, int n){ //inserts at front of linked list
   slnode *ptr;
   ptr = getslnode();
   ptr->data = n;
@@ -104,7 +104,7 @@ void sladdfront(slnode *head, int n){
   head->link = ptr;
 }
 
-void sladdrear(slnode *head, int n){
+void sladdrear(slnode *head, int n){ //inserts at rear of linked list
   slnode *ptr, *new;
   ptr = head;
   while (ptr->link){
@@ -116,7 +116,7 @@ void sladdrear(slnode *head, int n){
 }
 
 //pos == 1 => node right after head i.e. at start
-void sladdat(slnode *head, int n, int pos){
+void sladdat(slnode *head, int n, int pos){ //inserts at position pos of linked list
   slnode *ptr, *new;
   int i;
   ptr = head;
@@ -137,7 +137,7 @@ void sladdat(slnode *head, int n, int pos){
   ptr->link = new;
 }
 
-int slremfront(slnode *head){
+int slremfront(slnode *head){ //deletes from front of linked list
   if (head->link){
     slnode *ptr;
     int n = (head->link)->data;
@@ -152,7 +152,7 @@ int slremfront(slnode *head){
   }
 }
 
-int slremrear(slnode *head){
+int slremrear(slnode *head){ //deletes from rear of linked list
   if (head->link){
     slnode *ptr, *ptr1;
     int n;
@@ -173,7 +173,7 @@ int slremrear(slnode *head){
 }
 
 //note: position 0 and lower deletes the head
-int slremat(slnode *head, int pos){
+int slremat(slnode *head, int pos){ //deletes from position pos of linked list
   slnode *ptr, *ptr1;
   int n, i;
   ptr = head;
@@ -199,7 +199,7 @@ int slremat(slnode *head, int pos){
   }
 }
 
-void sldisplay(slnode *head){
+void sldisplay(slnode *head){ //displays all the nodes of the linked list
   slnode *ptr = head->link;
   if (!ptr){
     printf("Empty\n");
@@ -211,7 +211,7 @@ void sldisplay(slnode *head){
   printf("\n");
 }
 
-int slrem(slnode *head, int n){
+int slrem(slnode *head, int n){//removes node with data 'n' from linked list
    slnode *ptr, *ptr1;
    ptr = head->link;
    ptr1 = head;
@@ -232,7 +232,7 @@ int slrem(slnode *head, int n){
    return n;
 }
 
-void sladdafter(slnode *head, int n, int key){
+void sladdafter(slnode *head, int n, int key){//inserts 'n' after node with data 'key' in linked list
    slnode *ptr, *new;
    ptr = head->link;
    if (!ptr){
